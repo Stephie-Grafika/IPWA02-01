@@ -1,0 +1,72 @@
+body{
+	background-size: auto 100%;
+}
+/*Navigation*/
+
+#logo{
+    max-width: 200px;
+}
+
+a.nav-link{
+    padding: 0!important;
+}
+
+/*Image*/
+
+#auswertungsdiagram{
+    width: 100%!important;
+}
+
+/* Footer */
+
+.footericon{
+    max-width: 15px;
+}
+
+/*Typo*/
+
+ul {
+    padding-left: 0!important;
+}
+
+/*Tabelle*/
+
+.input-group-text {
+    border-radius: 0!important;
+}
+
+caption{
+    text-align: -webkit-auto!important;
+}
+
+/*HR*/
+
+hr{
+    border: 1px solid RGB(var(--c_green))!important;
+    opacity: 1!important;
+}
+
+/*Responsive*/
+
+.only-mobile{
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (min-width: 1023px) and (max-width: 768px) {
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 767px) {
+	
+	.only-mobile{
+		display:initial;
+	}
+				
+	.only-desktop{
+		display:none;
+	}
+}
