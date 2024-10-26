@@ -1,0 +1,28 @@
+/* colors as var */
+
+:root{
+	--c_darkgreen:	49, 127, 41;
+	--c_green: 	150, 190, 92;
+}
+
+
+/* colors as class*/
+
+	.c_darkgreen{
+		color: RGB(var(--c_darkgreen));
+	}
+	.c_green{
+		color: RGB(var(--c_green));
+	}
+	
+	.c_bg_darkgreen{
+		background-color: RGB(var(--c_darkgreen));
+	}
+
+    .c_bg_green{
+		background-color: RGB(var(--c_green));
+	}
+    
+    .c_b_darkgreen{
+		border-color: RGB(var(--c_darkgreen));
+	}
