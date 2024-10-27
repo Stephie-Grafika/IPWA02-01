@@ -2,7 +2,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import java.io.Serializable;
 
-/* Def. Class als Bean */
+/* Def. Klasse als Bean */
 @Named
 /* Gültigkeitsbereich */
 @RequestScoped
