@@ -15,4 +15,12 @@ public class Controller implements Serializable
     public String stopEdit() {
     	return "vorschau";
     }
+    
+    public String neueSpalte() {
+    	return "#";
+    }
+    
+    public String neueZeilee() {
+    	return "#";
+    }
 }
