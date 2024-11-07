@@ -1,0 +1,70 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto; 
+    padding: 25px;
+}
+
+/* Header */
+
+header {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#logo {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Typo */
+
+h1 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: RGB(var(--c_darkgreen));
+    text-align: center;
+}
+
+footer ul li a {
+    color: RGB(var(--c_darkgreen)); 
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: RGB(var(--c_green));
+}
+
+/* Buttons */
+
+.ui-button {
+    background-color: RGB(var(--c_green)) !important;
+    color: white !important; 
+    border: none !important;
+    display: block !important;
+    margin: 25px auto !important;
+}
+
+.ui-button:hover {
+    background-color: RGB(var(--c_darkgreen)) !important;
+    color: white !important;
+    border: none !important; 
+}
+
+/* Footer */
+
+.footericon {
+    max-width: 15px;
+    margin-right: 10px;
+}
+
+footer ul {
+    list-style: none;
+    text-align: center;
+}
+
+footer ul li {
+    display: inline-block;
+    margin-right: 25px; 
+}

@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>CO2-Emission Bearbeitung</title>
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" media="screen" href="color.css"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="styles.css"/>
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon/favicon.ico"/>
+</h:head>
+<h:body>
+	<!-- Header & Logo -->
+	<header>
+		<img src="assets/img/Logo.png" width="200px"/>
+		<br/><br/><h1>CO2-Emission: Bearbeitungsmodus</h1>
+		<br/><hr/><br/><br/>
+	</header>
+	<h:form>
+		<p:dataTable var="emission" value="#{emissionTabelle.liste}">
+			<p:column headerText="Land">
+				<p:inputText value="#{emission.land}" id="landInput" required="true" label="Landname">
+					<f:validateRegex pattern="[a-zA-ZäöüÄÖÜß ]+"/>
+				</p:inputText>
+				<p:message for="landInput" display="text"/>
+			</p:column>
+			<p:column headerText="Landcode">
+				<p:inputText value="#{emission.landCode}" id="landCode" label="Landcode">
+					<f:validateRegex pattern="[a-zA-ZäöüÄÖÜß ]+"/>
+					<f:validateLength minimum="3" maximum="3"/>
+				</p:inputText>
+				<p:message for="landCode" display="text" />
+			</p:column>
+			<p:column headerText="CO2-Emissions (kt) 1990">
+				<p:inputText value="#{emission.emission1990}" id="emission1990Input" label="Emission 1990">
+					<f:validateDoubleRange minimum="0.00"/>
+				</p:inputText>
+				<p:message for="emission1990Input" display="text" />
+			</p:column>
+			<p:column headerText="CO2-Emissions (kt) 2000">
+				<p:inputText value="#{emission.emission2000}" id="emission2000Input" label="Emission 2000">
+					<f:validateDoubleRange minimum="0.00"/>
+				</p:inputText>
+				<p:message for="emission2000Input" display="text" />
+			</p:column>
+			<p:column headerText="CO2-Emissions (kt) 2010">
+				<p:inputText value="#{emission.emission2010}" id="emission2010Input" label="Emission 2010">
+					<f:validateDoubleRange minimum="0.00"/>
+				</p:inputText>
+				<p:message for="emission2010Input" display="text" />
+			</p:column>
+			<p:column headerText="CO2-Emissions (kt) 2020">
+				<p:inputText value="#{emission.emission2020}" id="emission2020Input" label="Emission 2020">
+					<f:validateDoubleRange minimum="0.00"/>
+				</p:inputText>
+				<p:message for="emission2020Input" display="text" />
+			</p:column>
+		</p:dataTable>
+		<p:messages id="messages">
+			<p:autoUpdate />
+		</p:messages>
+		<p:commandButton value="speichern" icon="pi pi-check" action="#{emissionTabelleController.stopEdit()}" />
+	</h:form>
+	<footer>
+	<br/><br/><hr/><br/>
+		<ul>
+          	<li>© Stephanie Ott (4237273) 2024</li>
+          	<li><a href="#" >Datenschutzerklärung</a></li>
+          	<li><a href="#" >Impressum</a></li>
+			<li><a href="#" target="_blank"><img src="assets/img/instagram.png" class="footericon"/>CO2-Instagram</a></li>
+		</ul>
+	</footer>
+</h:body>
+</html>
