@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/Users/StephanieOtt_1/Documents/GitHub/IPWA02-01/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+142262923.index
+1709032873.index
+2149684041.index
+3692092650.index
+1407044035.index
+1808742487.index

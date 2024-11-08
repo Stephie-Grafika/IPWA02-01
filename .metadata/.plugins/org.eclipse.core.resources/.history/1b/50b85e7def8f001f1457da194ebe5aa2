@@ -1,0 +1,16 @@
+
+public class Co2app {
+
+	public static void main(String[] args) {
+
+		Co2emission co2emission1 = new Co2emission();
+		co2emission1.setLand("Deutschland");
+		co2emission1.setFlagge("🇩");
+		co2emission1.setEmission2020("600");
+		co2emission1.setEmission2020("700");
+		co2emission1.setEmission2020("800");
+		co2emission1.setEmission2020("900");
+
+	}
+
+}

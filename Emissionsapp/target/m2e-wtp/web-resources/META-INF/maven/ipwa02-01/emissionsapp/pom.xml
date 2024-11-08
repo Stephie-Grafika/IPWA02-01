@@ -6,7 +6,7 @@
 	<artifactId>emissionsapp</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>lektion6 Maven Webapp</name>
+	<name>Emissionsapp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -75,6 +75,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>lektion6</finalName>
+		<finalName>emissionsapp</finalName>
 	</build>
 </project>

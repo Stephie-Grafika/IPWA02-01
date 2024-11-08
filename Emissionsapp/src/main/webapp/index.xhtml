@@ -17,28 +17,37 @@
 		<br/><br/><h1>Like Hero To Zero: CO2-Emission aller Länder</h1>
 		<br/><hr/><br/><br/>
 	</header>
-       <!-- <input type="text" placeholder="Land suchen" class="form-control" id="searchLand" onkeyup="filterTable('searchLand')"/>
-		<br/><br/>-->
-		<p:dataTable var="emission" value="#{emissionTabelle.liste}" id="emissionstabel">
-			<p:column headerText="Land">
+	<h:form>
+		<h2>Ziel, beteiligte Verbände und Vereine des Nachhaltigkeitsprojekts</h2>
+		<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+		<br/>
+		
+		<!-- Suchfeld für Land -->
+		<p:inputText id="searchLand" onkeyup="filterTable()" placeholder="Landname eingeben" 
+					 styleClass="search-field" />
+
+		<br/><br/><br/>
+		<p:dataTable id="emissionTable" var="emission" value="#{emissionTabelle.liste}">
+			<p:column headerText="Land" sortBy="#{emission.land}">
 				<p:outputLabel value="#{emission.land}" />
 			</p:column>
-			<p:column headerText="Landcode">
+			<p:column headerText="Landcode" sortBy="#{emission.landCode}">
 				<p:outputLabel value="#{emission.landCode}" />
 			</p:column>
-			<p:column headerText="CO2-Emissions (kt) 1990">
+			<p:column headerText="CO2-Emissions (kt) 1990" sortBy="#{emission.emission1990}">
 				<p:outputLabel value="#{emission.emission1990}" />
 			</p:column>
-			<p:column headerText="CO2-Emissions (kt) 2000">
+			<p:column headerText="CO2-Emissions (kt) 2000" sortBy="#{emission.emission2000}">
 				<p:outputLabel value="#{emission.emission2000}" />
 			</p:column>
-			<p:column headerText="CO2-Emissions (kt) 2010">
+			<p:column headerText="CO2-Emissions (kt) 2010" sortBy="#{emission.emission2010}">
 				<p:outputLabel value="#{emission.emission2010}" />
 			</p:column>
-			<p:column headerText="CO2-Emissions (kt) 2020">
+			<p:column headerText="CO2-Emissions (kt) 2020" sortBy="#{emission.emission2020}">
 				<p:outputLabel value="#{emission.emission2020}" />
 			</p:column>
 		</p:dataTable>
+	</h:form>
 	<footer>
 	<br/><br/><hr/><br/>
 		<ul>
@@ -48,7 +57,5 @@
 			<li><a href="https://www.instagram.com" target="_blank"><img src="assets/img/instagram.png" class="footericon"/>CO2-Instagram</a></li>
 		</ul>
 	</footer>
-	<!-- JS -->
-	<script src="tablefilter.js"></script>
 </h:body>
 </html>

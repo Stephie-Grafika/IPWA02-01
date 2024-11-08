@@ -19,26 +19,26 @@
 	</header>
 	<h:form>
 		<p:dataTable var="emission" value="#{emissionTabelle.liste}">
-			<p:column headerText="Land">
+			<p:column headerText="Land" sortBy="#{emission.land}">
 				<p:outputLabel value="#{emission.land}" />
 			</p:column>
-			<p:column headerText="Landcode">
+			<p:column headerText="Landcode" sortBy="#{emission.landCode}">
 				<p:outputLabel value="#{emission.landCode}" />
 			</p:column>
-			<p:column headerText="CO2-Emissions (kt) 1990">
+			<p:column headerText="CO2-Emissions (kt) 1990" sortBy="#{emission.emission1990}">
 				<p:outputLabel value="#{emission.emission1990}" />
 			</p:column>
-			<p:column headerText="CO2-Emissions (kt) 2000">
+			<p:column headerText="CO2-Emissions (kt) 2000" sortBy="#{emission.emission2000}">
 				<p:outputLabel value="#{emission.emission2000}" />
 			</p:column>
-			<p:column headerText="CO2-Emissions (kt) 2010">
+			<p:column headerText="CO2-Emissions (kt) 2010" sortBy="#{emission.emission2010}">
 				<p:outputLabel value="#{emission.emission2010}" />
 			</p:column>
-			<p:column headerText="CO2-Emissions (kt) 2020">
+			<p:column headerText="CO2-Emissions (kt) 2020" sortBy="#{emission.emission2020}">
 				<p:outputLabel value="#{emission.emission2020}" />
 			</p:column>
 		</p:dataTable>
-		<p:commandButton value="bearbeiten" icon="pi pi-pencil" action="#{emissionTabelleController.startEdit()}" />
+		<p:commandButton value="bearbeiten" icon="pi pi-pencil" action="#{emissionTabelleController.startEdit()}" styleClass="positionierter-button"/>
 	</h:form>
 	<footer>
 	<br/><br/><hr/><br/>

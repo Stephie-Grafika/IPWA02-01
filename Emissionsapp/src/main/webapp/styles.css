@@ -1,8 +1,9 @@
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    width: 1000px;
+   	max-width: 1200px;
     margin: 0 auto; 
     padding: 25px;
+    word-break: break-text;
 }
 
 /* Header */
@@ -13,22 +14,27 @@ header {
 }
 
 #logo {
-    max-width: 300px;
+    max-width: 250px;
     margin: 0 auto;
 }
 
 /* Typo */
 
 h1 {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 2.2em;
     font-weight: 700;
     color: RGB(var(--c_darkgreen));
     text-align: center;
 }
 
+h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: RGB(var(--c_darkgreen));
+}
+
 p, span, label, li, input {
-    font-size: 1.1em!important;
+    font-size: 1em!important;
 }
 
 footer ul li a {
@@ -38,6 +44,12 @@ footer ul li a {
 
 footer ul li a:hover {
     color: RGB(var(--c_green));
+}
+
+/* CommandLink */
+
+.ui-commandlink, .ui-commandlink:hover {
+	color: black !important;
 }
 
 /* Buttons */
@@ -54,6 +66,13 @@ footer ul li a:hover {
     background-color: RGB(var(--c_darkgreen)) !important;
     color: white !important;
     border: none !important; 
+}
+
+.positionierter-button{
+	position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: 1000; /* Über anderen Elementen */
 }
 
 /* Tabelle & Input */
@@ -89,55 +108,42 @@ footer ul li {
 
 @media screen and (max-width: 992px){
 	
-h1 {
-    font-size: 3.5em;
-}	
 
-p, span, label,li, input {
-    font-size: 2.5em !important;
-}
-
-.ui-messages-error-summary{
-	font-size: 1.1em !important;
-}
-
-.ui-icon {
-    margin-top: -1em !important;
-}
-
-.ui-button-text {
-    padding: 0.5em 3em 0.5em 4em !important;
-}
-
-table {
-	width: 90% !important;
-	margin-left: 5% !important; 
-	margin-right: 5% !important; 
-}
-
-table td:first-child {
-	background-color: RGB(var(--c_green)) !important;
-	font-weight: 700;
-}
-
-table td {
-	display: block !important;  
-	text-align:left !important;
-}
-
-table th {
-	display: block !important;  
-	text-align:left !important;
-}
-
-table th:last-child {
-	margin-bottom: 1em !important;
-}
+	table {
+		width: 90% !important;
+		margin-left: 5% !important; 
+		margin-right: 5% !important; 
+	}
 	
-table td:before, table th:before {
-	content: attr(data-th) !important;
-	display: block !important;
-	text-align:left !important; 
-}
+	table td:first-child {
+		background-color: RGB(var(--c_green)) !important;
+		font-weight: 700;
+	}
+	
+	table td {
+		display: block !important;  
+		text-align:left !important;
+	}
+	
+	table th {
+		display: block !important;  
+		text-align:left !important;
+	}
+	
+	table th:last-child {
+		margin-bottom: 1em !important;
+	}
+		
+	table td:before, table th:before {
+		content: attr(data-th) !important;
+		display: block !important;
+		text-align:left !important; 
+	}
+	
+	footer ul li {
+	     display: block;
+	     margin-right: 0;
+	     margin-bottom: 1em; 
+	}
 
 }
