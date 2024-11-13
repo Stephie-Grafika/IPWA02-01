@@ -21,14 +21,10 @@
 		<h2>Ziel, beteiligte Verbände und Vereine des Nachhaltigkeitsprojekts</h2>
 		<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 		<br/>
-		
-		<!-- Suchfeld für Land -->
-		<p:inputText id="searchLand" onkeyup="filterTable()" placeholder="Landname eingeben" 
-					 styleClass="search-field" />
-
+				
 		<br/><br/><br/>
-		<p:dataTable id="emissionTable" var="emission" value="#{emissionTabelle.liste}">
-			<p:column headerText="Land" sortBy="#{emission.land}">
+		<p:dataTable id="table" var="emission" value="#{emissionTabelle.liste}" emptyMessage="Kein Land unter dieser Suche gefunden.">			
+			<p:column headerText="Land" sortBy="#{emission.land}" filterBy="#{emission.land}" filterPlaceholder="Suchen">				
 				<p:outputLabel value="#{emission.land}" />
 			</p:column>
 			<p:column headerText="Landcode" sortBy="#{emission.landCode}">
@@ -45,6 +41,12 @@
 			</p:column>
 			<p:column headerText="CO2-Emissions (kt) 2020" sortBy="#{emission.emission2020}">
 				<p:outputLabel value="#{emission.emission2020}" />
+			</p:column>
+			<p:column headerText="CO2-Emissions (kt) 2030" sortBy="#{emission.emission2030}">
+				<p:outputLabel value="#{emission.emission2030}" />
+			</p:column>
+			<p:column headerText="CO2-Emissions (kt) 2040" sortBy="#{emission.emission2040}">
+				<p:outputLabel value="#{emission.emission2040}" />
 			</p:column>
 		</p:dataTable>
 	</h:form>

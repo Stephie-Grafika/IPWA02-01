@@ -26,8 +26,8 @@ public class LoginController implements Serializable {
 	/* Wäre in richtigem System verschlüsselt */
 	public LoginController() {
 		this.accountListe = new ArrayList<Account>();
-		this.accountListe.add(new Account("Admin", "123"));
-		this.accountListe.add(new Account("User", "456"));
+		this.accountListe.add(new Account("Wissenschaftlerin", "123456"));
+		this.accountListe.add(new Account("Wissenschaftler", "654321"));
 		this.account = new Account();
 	}
 	
@@ -50,20 +50,15 @@ public class LoginController implements Serializable {
 			/* Prüfen, ob Eingabewerte mit temporärem Objekt (Account) übereinstimmt durch überschriebene Equals-Methode */
 			if(a.equals(temp))
 				/* Falls ja, wird wahr zurück geworfen */
-				return;
+				return ;
 		}
 		/* Falls nein, wird Execption/Fehlermeldung geworfen */
 		throw new ValidatorException(new FacesMessage("Login falsch!"));
 	}
 
-	/* Weiterleitung nach Login abhängig vom Accountnamen */
+	/* Weiterleitung nach Login - Alle Benutzer werden zu "editierbar" weitergeleitet */
 	public String login() {
-		/* Nur für Dev um zu sehen, wie Werte gesetzt und geprüft werden 
-		int breakpoint = 1; */
-		if (this.name.equals("Admin"))
-			return "bearbeiten";
-		else
-			return "vorschau";
+	    return "editierbar"; // Alle Benutzer werden auf die Seite "editierbar" weitergeleitet
 	}
 
 	public String getName() {

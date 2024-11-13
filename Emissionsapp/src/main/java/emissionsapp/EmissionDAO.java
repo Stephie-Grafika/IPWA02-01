@@ -14,7 +14,6 @@ public class EmissionDAO {
         EntityManager entityManager = emf.createEntityManager();
         Query abfrage = entityManager.createQuery("select e from Emission e");
         List<Emission> alleEmissionen = abfrage.getResultList();
-        
         entityManager.close();
         return alleEmissionen;
     }

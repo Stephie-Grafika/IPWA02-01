@@ -18,8 +18,8 @@
 		<br/><hr/><br/><br/>
 	</header>
 	<h:form>
-		<p:dataTable var="emission" value="#{emissionTabelle.liste}">
-			<p:column headerText="Land" sortBy="#{emission.land}">
+		<p:dataTable id="table" var="emission" value="#{emissionTabelle.liste}" emptyMessage="Kein Land unter dieser Suche gefunden.">
+			<p:column headerText="Land" sortBy="#{emission.land}" filterBy="#{emission.land}" filterPlaceholder="Suchen">				
 				<p:outputLabel value="#{emission.land}" />
 			</p:column>
 			<p:column headerText="Landcode" sortBy="#{emission.landCode}">
@@ -36,6 +36,12 @@
 			</p:column>
 			<p:column headerText="CO2-Emissions (kt) 2020" sortBy="#{emission.emission2020}">
 				<p:outputLabel value="#{emission.emission2020}" />
+			</p:column>
+			<p:column headerText="CO2-Emissions (kt) 2030" sortBy="#{emission.emission2030}">
+				<p:outputLabel value="#{emission.emission2030}" />
+			</p:column>
+			<p:column headerText="CO2-Emissions (kt) 2040" sortBy="#{emission.emission2040}">
+				<p:outputLabel value="#{emission.emission2040}" />
 			</p:column>
 		</p:dataTable>
 		<p:commandButton value="bearbeiten" icon="pi pi-pencil" action="#{emissionTabelleController.startEdit()}" styleClass="positionierter-button"/>

@@ -1,9 +1,10 @@
 package emissionsapp;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Emission {
+public class Emission implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -14,12 +15,14 @@ public class Emission {
     Double emission2000;
     Double emission2010;
     Double emission2020;
+    Double emission2030;
+    Double emission2040;
 
 	public Emission() {
 
 	}
 	
-	public Emission(String land, String landCode, Double emission1990, Double emission2000, Double emission2010, Double emission2020) {
+	public Emission(String land, String landCode, Double emission1990, Double emission2000, Double emission2010, Double emission2020, Double emission2030, Double emission2040) {
 		super();
 		this.land = land;
 		this.landCode = landCode;
@@ -27,6 +30,8 @@ public class Emission {
 		this.emission2000 = emission2000;
 		this.emission2010 = emission2010;
 		this.emission2020 = emission2020;
+		this.emission2030 = emission2030;
+		this.emission2040 = emission2040;
 	}
 
 // Getter und Setter für alle Attribute
@@ -77,5 +82,21 @@ public class Emission {
 
     public void setEmission2020(Double emission2020){
     	this.emission2020 = emission2020;
+    }
+    
+    public Double getEmission2030(){
+    	return emission2030;
+    }
+
+    public void setEmission2030(Double emission2030){
+    	this.emission2030 = emission2030;
+    }
+    
+    public Double getEmission2040(){
+    	return emission2040;
+    }
+
+    public void setEmission2040(Double emission2040){
+    	this.emission2040 = emission2040;
     }
 }

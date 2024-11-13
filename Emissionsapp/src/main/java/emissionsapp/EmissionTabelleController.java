@@ -18,16 +18,12 @@ public class EmissionTabelleController implements Serializable
 	
 	private final EmissionDAO emissionDAO = new EmissionDAO();
 	
-	// Neue Variable für die Filterung nach Land
-    private String suchLand;
-    
-    // Gefilterte Liste der Emissionen
-    private List<Emission> filteredList;
-	
+	// Methode zum Start der Bearbeitung und Beenden des Vorschaumodus
     public String startEdit() {
         return "editierbar";
     }
     
+    // Methode zum Speichern der Emissionen und Beenden des Bearbeitungsmodus
     public String stopEdit() {
     	
     	// Speichere die gesamte Liste ohne erneutes Öffnen der EntityManagerFactory
@@ -48,8 +44,7 @@ public class EmissionTabelleController implements Serializable
     
     // Methode zum Hinzufügen einer neuen Emission
     public void addEmission() {
-        Emission neueEmission = new Emission(); // Neues Emission-Objekt erzeugen
-        emissionTabelle.getListe().add(neueEmission); // Hinzufügen zur Liste
+    	emissionDAO.addEmission(emissionTabelle.getListe()); // Neuen Eintrag über DAO hinzufügen
     }
 
     // Methode zum Löschen einer Emission
@@ -57,6 +52,4 @@ public class EmissionTabelleController implements Serializable
         emissionDAO.delete(emission); // Löschen der Emission über die DAO
         emissionTabelle.getListe().remove(emission); // Entfernen aus der Tabelle im Controller
     }
-    
-    
 }
