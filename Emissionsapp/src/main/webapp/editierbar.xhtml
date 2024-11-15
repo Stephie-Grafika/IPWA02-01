@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="color.css"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="styles.css"/>
 	<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon/favicon.ico"/>
+	<!-- Indexierung verhindern -->
+	<meta name="robots" content="noindex"/>
 </h:head>
 <h:body>
 	<!-- Header & Logo -->
@@ -18,19 +20,20 @@
 		<br/><hr/><br/><br/>
 	</header>
 	<h:form>
-		<p:dataTable id="table" var="emission" value="#{emissionTabelle.liste}" emptyMessage="Kein Land unter dieser Suche gefunden.">
+		<p:dataTable id="table" var="emission" value="#{emissionTabelle.liste}" emptyMessage="Kein Land unter dieser Suche gefunden." size="small" stickyHeader="true" stickyTopAt=".layout-topbar">
+			<p:column headerText="ID" sortBy="#{emission.ID}">
+				<p:outputLabel value="#{emission.ID}" id="IDInput"></p:outputLabel>
+			</p:column>
 			<p:column headerText="Land" sortBy="#{emission.land}" filterBy="#{emission.land}" filterPlaceholder="Suchen">
 				<p:inputText value="#{emission.land}" id="landInput" required="true" requiredMessage="Landname ist erforderlich">
 					<f:validateRegex pattern="[a-zA-ZäöüÄÖÜß(),.;:'-–&amp; ]+"/>
 				</p:inputText>
-				<h:message for="landInput"/>
 			</p:column>
 			<p:column headerText="Landcode" sortBy="#{emission.landCode}">
 				<p:inputText value="#{emission.landCode}" id="landCode" label="Landcode" validatorMessage="Landcode darf nur aus 3 Buchstaben bestehen">
 					<f:validateRegex pattern="[a-zA-ZäöüÄÖÜß ]+"/>
 					<f:validateLength minimum="3" maximum="3"/>
 				</p:inputText>
-				<h:message for="landCode"/>
 			</p:column>
 			<p:column headerText="CO2-Emissions (kt) 1990" sortBy="#{emission.emission1990}">
 				<p:inputText value="#{emission.emission1990}" id="emission1990Input" label="Emission 1990" validatorMessage="Emmission 1990 darf nicht negativ sein">
@@ -66,11 +69,13 @@
            		<p:commandLink value="&#10008; Löschen" action="#{emissionTabelleController.deleteEmission(emission)}" update="table" />
         	</p:column>
 		</p:dataTable>
-		<p:messages id="messages">
-			<p:autoUpdate />
-		</p:messages>
-		<p:commandButton value="speichern" icon="pi pi-check" action="#{emissionTabelleController.stopEdit()}" styleClass="positionierter-button"/>
-		<p:commandButton value="Neues Land hinzufügen" icon="pi pi-plus" action="#{emissionTabelleController.addEmission()}" update="table" />
+		<div class="positionierter-button">
+			<p:messages id="messages">
+				<p:autoUpdate />
+			</p:messages>
+			<p:commandButton value="speichern" icon="pi pi-check" action="#{emissionTabelleController.stopEdit}" />
+			<p:commandButton value="Neues Land hinzufügen" icon="pi pi-plus" action="#{emissionTabelleController.addEmission}" update="table" />
+		</div>
 	</h:form>
 	<footer>
 	<br/><br/><hr/><br/>

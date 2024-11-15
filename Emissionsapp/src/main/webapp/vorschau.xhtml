@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="color.css"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="styles.css"/>
 	<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon/favicon.ico"/>
+	<!-- Indexierung verhindern -->
+	<meta name="robots" content="noindex"/>
 </h:head>
 <h:body>
 	<!-- Header & Logo -->
@@ -18,7 +20,7 @@
 		<br/><hr/><br/><br/>
 	</header>
 	<h:form>
-		<p:dataTable id="table" var="emission" value="#{emissionTabelle.liste}" emptyMessage="Kein Land unter dieser Suche gefunden.">
+		<p:dataTable id="table" var="emission" value="#{emissionTabelle.liste}" emptyMessage="Kein Land unter dieser Suche gefunden." size="small" stickyHeader="true" stickyTopAt=".layout-topbar">
 			<p:column headerText="Land" sortBy="#{emission.land}" filterBy="#{emission.land}" filterPlaceholder="Suchen">				
 				<p:outputLabel value="#{emission.land}" />
 			</p:column>
@@ -44,7 +46,7 @@
 				<p:outputLabel value="#{emission.emission2040}" />
 			</p:column>
 		</p:dataTable>
-		<p:commandButton value="bearbeiten" icon="pi pi-pencil" action="#{emissionTabelleController.startEdit()}" styleClass="positionierter-button"/>
+		<p:commandButton value="bearbeiten" icon="pi pi-pencil" action="#{emissionTabelleController.startEdit}" styleClass="positionierter-button"/>
 	</h:form>
 	<footer>
 	<br/><br/><hr/><br/>

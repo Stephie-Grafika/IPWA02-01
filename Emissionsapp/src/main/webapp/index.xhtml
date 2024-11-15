@@ -23,7 +23,7 @@
 		<br/>
 				
 		<br/><br/><br/>
-		<p:dataTable id="table" var="emission" value="#{emissionTabelle.liste}" emptyMessage="Kein Land unter dieser Suche gefunden.">			
+		<p:dataTable id="table" var="emission" value="#{emissionTabelle.liste}" emptyMessage="Kein Land unter dieser Suche gefunden." size="small" stickyHeader="true" stickyTopAt=".layout-topbar">			
 			<p:column headerText="Land" sortBy="#{emission.land}" filterBy="#{emission.land}" filterPlaceholder="Suchen">				
 				<p:outputLabel value="#{emission.land}" />
 			</p:column>

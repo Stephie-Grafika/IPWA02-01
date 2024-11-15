@@ -3,22 +3,22 @@ package emissionsapp;
 import java.util.List;
 import jakarta.persistence.*;
 
-
+// Datenbankzugriff
 public class EmissionDAO {
 	
 	 // Verwende eine einzige EntityManagerFactory während der gesamten Laufzeit
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("emissionPersistenceUnit");
     
-    // Methode zum Laden aller Emissionen
+    // Methode zum Laden aller Emissionen aus der Datenbank
     public List<Emission> findAll() {
-        EntityManager entityManager = emf.createEntityManager();
-        Query abfrage = entityManager.createQuery("select e from Emission e");
-        List<Emission> alleEmissionen = abfrage.getResultList();
+        EntityManager entityManager = emf.createEntityManager(); // PA-Komponente für Zugriff auf Datenbank 
+        Query abfrage = entityManager.createQuery("select e from Emission e"); //JPQL-Abfrage (Java Persistence Query Language
+        List<Emission> alleEmissionen = abfrage.getResultList(); //Speichern der Abfrageergebnisse in eine Liste
         entityManager.close();
         return alleEmissionen;
     }
 
-    // Methode zum Speichern aller Emissionen
+    // Methode zum Speichern aller Emissionen in der Datenbank
     public void saveAll(List<Emission> emissionen) {
         EntityManager entityManager = emf.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
@@ -26,18 +26,21 @@ public class EmissionDAO {
         try {
             transaction.begin();
             for (Emission emission : emissionen) {
-            	entityManager.merge(emission);  // Speichern oder Aktualisieren jedes Emission-Objekts
+            	entityManager.merge(emission);  // Neu speichern oder Aktualisieren jedes Emission-Objekts (ID-Abhängig)
             }
-            transaction.commit();
+            transaction.commit(); 
         } finally {
-        	entityManager.close();  // EntityManager schließen, auch wenn eine Exception auftritt
+        	entityManager.close();  // EntityManager schließen, auch wenn eine Exception auftritt, um Ressourcen freizugeben
         }
     }
 
-    // Methode zum Hinzufügen einer neuen Emission zur Liste
+    // Methode zum Hinzufügen einer neuen Emission zur Liste, über Speichern in Datenbank
+
     public void addEmission(List<Emission> emissionen) {
-        Emission neueEmission = new Emission(); // Erstellen eines neuen Emission-Objekts
-        emissionen.add(neueEmission); // Zur übergebenen Liste hinzufügen (keine DB-Transaktion)
+        Emission neueEmission = new Emission(); // Leeres Emission-Objekt erstellen
+        int maxId = emissionen.stream().mapToInt(Emission::getID).max().orElse(0); // Sucht höchste ID, Standard 0 bei leerer Liste
+        neueEmission.setID(maxId + 1); // ID definieren als höchste ID + 1
+        emissionen.add(neueEmission); // Neues Objekt der Lsite hinzufügen
     }
     
     // Methode zum Löschen einer Emission
@@ -69,8 +72,6 @@ public class EmissionDAO {
         if (emf.isOpen()) {
             emf.close();
         }
-    }
-    
-    
+    }    
 }
 

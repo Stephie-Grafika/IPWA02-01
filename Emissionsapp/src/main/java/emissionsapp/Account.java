@@ -1,8 +1,10 @@
 package emissionsapp;
 
 public class Account {
-	String name;
-	String passwort;
+	private String name;
+	private String passwort;
+	
+	// Getter und Setter für alle Attribute
 	
 	public String getName() {
 		return name;

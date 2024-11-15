@@ -7,7 +7,6 @@ import java.io.Serializable;
 public class Emission implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int ID;
 	private String land;
     private String landCode;
@@ -19,11 +18,12 @@ public class Emission implements Serializable {
     Double emission2040;
 
 	public Emission() {
-
+		// Standard-Konstruktor für JPA
 	}
 	
-	public Emission(String land, String landCode, Double emission1990, Double emission2000, Double emission2010, Double emission2020, Double emission2030, Double emission2040) {
-		super();
+	public Emission(int ID, String land, String landCode, Double emission1990, Double emission2000, Double emission2010, Double emission2020, Double emission2030, Double emission2040) {
+		super(); // Ruft den Konstruktor der Elternklasse auf
+		this.ID = ID;
 		this.land = land;
 		this.landCode = landCode;
 		this.emission1990 = emission1990;
@@ -36,6 +36,14 @@ public class Emission implements Serializable {
 
 // Getter und Setter für alle Attribute
 		
+	public int getID(){
+    	return ID;
+    }
+
+    public void setID(int ID){
+    	this.ID = ID;
+    }
+    
 	public String getLand(){
     	return land;
     }

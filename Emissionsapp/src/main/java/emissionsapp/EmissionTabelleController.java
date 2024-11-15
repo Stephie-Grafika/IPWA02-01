@@ -2,9 +2,10 @@ package emissionsapp;
 
 import java.io.Serializable;
 import jakarta.faces.view.ViewScoped;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import jakarta.enterprise.context.SessionScoped;
 import java.util.List;
 import java.util.stream.Collectors;
 /*import jakarta.persistence.*;*/
@@ -14,9 +15,9 @@ import java.util.stream.Collectors;
 public class EmissionTabelleController implements Serializable
 {
 	@Inject 
-	private EmissionTabelle emissionTabelle;
+	private EmissionTabelle emissionTabelle; // Injiziert die Tabelle.
 	
-	private final EmissionDAO emissionDAO = new EmissionDAO();
+	private final EmissionDAO emissionDAO = new EmissionDAO(); // Injiziert  Klasse EmissionDAO, um Methoden nutzen zu können
 	
 	// Methode zum Start der Bearbeitung und Beenden des Vorschaumodus
     public String startEdit() {
@@ -27,24 +28,13 @@ public class EmissionTabelleController implements Serializable
     public String stopEdit() {
     	
     	// Speichere die gesamte Liste ohne erneutes Öffnen der EntityManagerFactory
-        emissionDAO.saveAll(emissionTabelle.getListe());
-    	
-    	/* in DAO ausgelagert 
-    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("emissionPersistenceUnit");
-    	EntityManager em = emf.createEntityManager();
-        EntityTransaction t = em.getTransaction();
-        t.begin();
-        
-        for (Emission e : emissionTabelle.getListe())
-          em.merge(e);
-        t.commit(); */
-        
+        emissionDAO.saveAll(emissionTabelle.getListe());      
         return "vorschau"; // Erfolgreich gespeichert
     }
     
     // Methode zum Hinzufügen einer neuen Emission
     public void addEmission() {
-    	emissionDAO.addEmission(emissionTabelle.getListe()); // Neuen Eintrag über DAO hinzufügen
+    	emissionDAO.addEmission(emissionTabelle.getListe());
     }
 
     // Methode zum Löschen einer Emission
