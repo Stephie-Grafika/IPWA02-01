@@ -12,31 +12,30 @@
 	<!-- Indexierung verhindern -->
 	<meta name="robots" content="noindex"/>
 </h:head>
-<h:body>
+<h:body id="login">
 	<!-- Header & Logo -->
 	<header>
 		<img src="assets/img/Logo.png" width="200px"/>
-		<br/><br/><h1>CO2-Emission: Bearbeitungsmodus</h1>
+		<br/><br/><h1>CO2-Emission: Login</h1>
 		<br/><hr/><br/><br/>
 	</header>
 	<h:form>
-		<p:card style="width: 30em">
-			<h2>Login</h2>
+		<p:card>
 			<p:panelGrid>
 				<p:row>
-					<p:outputLabel value="Accountname:" for="name" />
-					<p:inputText id="name" value="#{loginController.account.name}" required="true" size="25" requiredMessage="Accountname ist erforderlich">
+					<p:outputLabel value="Account:" for="name" />
+					<p:inputText id="name" value="#{loginController.account.name}" required="true" size="50" requiredMessage="Accountname ist erforderlich">
 						<f:event type="jakarta.faces.event.PostValidateEvent" listener="#{loginController.postValidateName}" />
 					</p:inputText>
 				</p:row>
 				<br/><br/>
 				<p:row>
 					<p:outputLabel value="Passwort:" for="pass" />
-					<p:password id="pass" value="#{loginController.account.passwort}" required="true" validator="#{loginController.validateLogin}" size="25" equiredMessage="Passwort ist erforderlich" />
+					<p:password id="pass" value="#{loginController.account.passwort}" required="true" validator="#{loginController.validateLogin}" size="50" equiredMessage="Passwort ist erforderlich" />
 				</p:row>
 			</p:panelGrid>
 			<f:facet name="footer">
-				<p:commandButton value="Login" action="#{loginController.login}" />
+				<p:commandButton value="Jetzt einloggen" action="#{loginController.login}" />
 				<p:messages>
 					<p:autoUpdate />
 				</p:messages>
