@@ -19,7 +19,7 @@ public class Account {
 		this.passwort = passwort;
 	}
 	public Account(String name, String passwort) {
-		super();
+		super(); // Ruft den Konstruktor der Superklasse (Object) auf
 		this.name = name;
 		this.passwort = passwort;
 	}

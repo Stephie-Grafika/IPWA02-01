@@ -10,11 +10,11 @@ import jakarta.inject.Named;
 @Named
 @ApplicationScoped
 public class EmissionTabelle implements Serializable {
-
+	
 	private List<Emission> liste; // Speichert  Liste aller aus Datenbank geladenen Emission-Objekte
     private final EmissionDAO emissionDAO = new EmissionDAO(); // Injiziert  Klasse EmissionDAO, um Methoden nutzen zu können
 
-    // Lade die Liste nur bei erstem Aufruf (Lazy Loading)
+    // Lade die Liste nur, wenn Sie benötigt wird (Lazy Loading)
     public List<Emission> getListe() {
         if (liste == null) {
             liste = emissionDAO.findAll();

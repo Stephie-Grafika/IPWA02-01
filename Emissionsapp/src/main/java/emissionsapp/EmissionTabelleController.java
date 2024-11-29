@@ -2,13 +2,8 @@ package emissionsapp;
 
 import java.io.Serializable;
 import jakarta.faces.view.ViewScoped;
-import jakarta.enterprise.context.SessionScoped;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import java.util.List;
-import java.util.stream.Collectors;
-/*import jakarta.persistence.*;*/
 
 @Named
 @ViewScoped
@@ -40,6 +35,6 @@ public class EmissionTabelleController implements Serializable
     // Methode zum Löschen einer Emission
     public void deleteEmission(Emission emission) {
         emissionDAO.delete(emission); // Löschen der Emission über die DAO
-        emissionTabelle.getListe().remove(emission); // Entfernen aus der Tabelle im Controller
+        emissionTabelle.getListe().remove(emission); // Entfernen aus lokalen Liste
     }
 }
